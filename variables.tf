@@ -1,12 +1,14 @@
-resource "azurerm_resource_group" "rg" {
-  name     = "myResourceGroup"
-  location = "East US"
+// variables.tf
+
+variable "region" {
+  description = "Azure region to deploy resources"
+  default     = "West Europe"
 }
 
-resource "azurerm_storage_account" "storage" {
-  name                     = "mystorageaccount"
-  resource_group_name      = azurerm_resource_group.rg.name
-  location                 = azurerm_resource_group.rg.location
-  account_tier             = "Standard"
-  account_replication_type = "LRS"
+variable "function_app_name" {
+  description = "Name of the Azure Function App"
+}
+
+variable "storage_account_name" {
+  description = "Name of the Azure Storage Account"
 }
